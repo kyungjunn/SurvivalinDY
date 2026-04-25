@@ -1,16 +1,19 @@
 using UnityEngine;
+using UnityEngine.InputSystem; // 새로운 Input System
 
 public class PlayerInput : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Vector2 MoveInput { get; private set; }
+    public Vector2 LookInput { get; private set; }
+
+
+    public void OnMove(InputValue value)
     {
-        
+        MoveInput = value.Get<Vector2>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnLook(InputValue value)
     {
-        
+        LookInput = value.Get<Vector2>();
     }
 }
